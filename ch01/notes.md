@@ -62,6 +62,28 @@ Looping Construct:
     * while ( condition ) { /* bunch of statements */ }
     * for (initialization; condition; increment/decrement) { /* bunch of code line */ }
 
+for loop is more compact and generatized form of while loop. Thus, it's appropriate where initialization and increment are single statements and logically related.
+
+### Symbolic Constants
+As the Zen of Python says, "Readability Counts". It's even more true for C Programs, this burying literal values in code can make it less readable to human, since it's not conveying much info or the semantic behind it.
+
+One way to deal with magic numbers is to give them meaningful names; which can be achieved using the #define operative, e.g.:
+    #define *name* *replacement list*
+
+It's a symbolic name because anywhere compile encounters the name, it will be replaced by the value it represents. They are not variables and they do not appear in declarations. As a convention, they are written in uppercase so they can be readily distinguished from the lower case variable names.
+
+### Character Input and Output
+Text input or input, regardless of where it originates and where it goes to, is dealt with as stream of characters. A *text stream* is a sequence of characters divided into lines; each line consists of zero or more characters followed by a newline character.
+
+Some common functions provided for reading and writing characters are:
+    * getchar
+    * putchar
+
+#### File Copying
+While reading a stream of characters using *getchar* a *char* or any integer type can be used. The important thing to not is while using getchar to read multiple characters from a file, distinguishing the EOF becomes difficult as char only hold single byte and the value returned by getchar for EOF is too bg to be stored successfully in char type. Thus using int.
+
+EOF is an integer defined in stdio.h
+
 ### To Remember
 1. Integer division truncates; any fractional part is discarded.
 2. During string interpolation using printf all % should macth properly to their correct values. printf is not part of the C language; but instead, it's defined by ANSI standard therefore, its behaviour should be consistent across different compilers which adhere to ANSI standard.
