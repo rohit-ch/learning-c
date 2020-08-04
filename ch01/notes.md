@@ -84,11 +84,33 @@ While reading a stream of characters using *getchar* a *char* or any integer typ
 
 EOF is an integer defined in stdio.h
 
+#### Functions
+Encapsulation mechanism for computation logic, which can be used without worrying about the implementation. Focus is more on what rather than how. Although functions enable reuse of some code, often some code is still put inside a function to clarify the logic even if it might not be used more than once.
+
+Important to note is that once a function have been declared it's definition can appear anywhere, in one file or multiple files in any order. But a definition can't be split across two different files.
+
+Another distinction that is usually made is between arguments and parameters. parameters are the formal arguments used during the function definition/declaration. Actual arguments or arguments are the values passed to function while actually calling it in program.
+
+    * return-type function-name(parameter declaration, if any)
+    * {
+    *       declarations
+    *       statements
+    * }
+
+The function declarations are also called prototype. A definition and prototype should match correctly in their signature.
+
+#### Arguments - Call By Value
+Anything done to the actual arguments done inside the function doesn't affect the value outside. Since copy of the value is passed. If the need arises where you need to modify actual value then while passing the value the address of the value must be passed( pass by pointer). This requires changes in the function prototype which should declare explicitly that the parameter is of pointer type.
+
+#### Character Arrays
+
+
 ### To Remember
 1. Integer division truncates; any fractional part is discarded.
 2. During string interpolation using printf all % should macth properly to their correct values. printf is not part of the C language; but instead, it's defined by ANSI standard therefore, its behaviour should be consistent across different compilers which adhere to ANSI standard.
 3. I/O library isn't part of the C language, that's why it needs to be included in the program header to use its functionalities.
-
+4. AND (&&) and OR (||) operators are evaluated from left to right and it is guaranteed that evaluation will stop as soon as the the truth or falsehood is known.
+5. There is no exponentiation operator ** instead pow(x, y) is provided by standard library.
 ---
 >Terminilogies:
 > * Function
