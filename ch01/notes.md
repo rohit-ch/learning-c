@@ -102,8 +102,12 @@ The function declarations are also called prototype. A definition and prototype 
 #### Arguments - Call By Value
 Anything done to the actual arguments done inside the function doesn't affect the value outside. Since copy of the value is passed. If the need arises where you need to modify actual value then while passing the value the address of the value must be passed( pass by pointer). This requires changes in the function prototype which should declare explicitly that the parameter is of pointer type.
 
-#### Character Arrays
+### External Variables
+Since function parameters and declarations within functions are local to it's scope, if a varibale has to be shared across multiple functions it can be defined globally as external variable.
 
+The requirements are that it must be defined exactly once. It also must be declared inside each function that uses it unless it's implicit by context. What this means is that if the global variable has been defined before the functions that uses it, then extern is redundant.
+
+Also if a global is variable is declared in file1 and file2 and file3 are using that vriable then the extern keyword is required. Typically all such declarations and definitions are placed in a separate header file (.h) and included in the source of other files as #include <file.h>
 
 ### To Remember
 1. Integer division truncates; any fractional part is discarded.
@@ -111,6 +115,8 @@ Anything done to the actual arguments done inside the function doesn't affect th
 3. I/O library isn't part of the C language, that's why it needs to be included in the program header to use its functionalities.
 4. AND (&&) and OR (||) operators are evaluated from left to right and it is guaranteed that evaluation will stop as soon as the the truth or falsehood is known.
 5. There is no exponentiation operator ** instead pow(x, y) is provided by standard library.
+6. Definition refer to the place where the variable is created or assigned storage.
+7. Declaration refers to the places where the nature of the variable is stated but no storage is allocated.
 ---
 >Terminilogies:
 > * Function
