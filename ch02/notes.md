@@ -69,5 +69,30 @@ const specifier tells that the value will not be changed.
 e,g, const double pi = 3.141592
 const char msg[] = "warning: ";
 
+### Operators
+* Arithmetic (*, /, %, +, -)
+* Relational (>, >=, <, <=, !=, ==)
+* Logical (&&, ||)
+* Increment & Decrement (++, --)
+* Bitwise (&, |, ^, <<, >>, ~)
+* Conditional Expression or Terniary Operator (?:)
+
+### Type conversion
+Usually when an operator is appied on different types, type conversion take place. Implicit conversion happens without much issue if it's logical to do so and there is no data loss. But in few cases such as converting float to int or int to short compiler might issue a warning stating the possibility of data loss during conversion.
+
+floats are not automatically converted to double, because by default double is used. The values of type float are used where memory needs to be conserved in large arrays or improving processing time on machine where floating point arithmetic is costly.
+
+Conversion b/w signed and unsigned values are complicated due to it being machine dependent, because they depend on the sizes of various integer types.
+
+Explicit type conversion can be forced via Type Casting. i.e. (type-name) expression.
+
+Prefix Increment or Decrement Operator modify yield the result before the value is to be used, so
+n = 5; x = ++n; implies n = 6 and x = 6
+whereas, if n = 5; x = n++; implies n = 6, and x = 5.
+
 ### Note
 1. Automatic variables are the variable that are declared in a block. It's synonymous to local. These variables allocat memory upon entry to that block and free the occupied memory as soon as it goes out of that scope or exits the block.
+2. Char is just a small integer of 1 byte.
+3. Language doesn't specify whether variabke of type char are signed or unsigned. When a char is converted to int whether it will produce a negative integer depends from machine to machine in architecure. e.g. In one machine if the leftmost bit of char is 1 it's treated as negative integer, whereas in other a char is promoted to int by padding the left with zero thus it's always positive.
+4. In test conditions of if, while, for etc true means non-zero.
+5. The increment and decrement operators can only be applied to variables.
